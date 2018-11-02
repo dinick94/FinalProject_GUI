@@ -9,15 +9,33 @@ public class ViewData extends JFrame {
     JLabel label;
     JTable table;
     JButton back, load;
-    JPanel buttonPanel;
+    JPanel buttonPanel, finishPanel;
+
+    public static void main(String args[]){
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    ViewData frame = new ViewData();
+                    frame.setVisible(true);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     public ViewData(){
 
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        setTitle("View Data");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBounds(50,50,500,200);
+
 
         ButtonListener listener = new ButtonListener();
 
         buttonPanel = new JPanel();
+        finishPanel = new JPanel();
         label = new JLabel("View Data");
         table = new JTable(6,6);
         back = new JButton("Back");
@@ -25,25 +43,26 @@ public class ViewData extends JFrame {
 
         label.setFont(new Font("Arial", Font.BOLD, 18));
 
-        label.setAlignmentX(RIGHT_ALIGNMENT);
+        back.addActionListener(listener);
+        load.addActionListener(listener);
+
+        finishPanel.setLayout(new BoxLayout(finishPanel, BoxLayout.PAGE_AXIS));
+
+        label.setAlignmentX(LEFT_ALIGNMENT);
         back.setAlignmentX(RIGHT_ALIGNMENT);
         load.setAlignmentX(LEFT_ALIGNMENT);
+
+
 
         buttonPanel.add(back);
         buttonPanel.add(load);
 
-        add(label);
-        add(table);
-        add(buttonPanel);
+        finishPanel.add(label);
+        finishPanel.add(table);
+        finishPanel.add(buttonPanel);
 
+        add(finishPanel);
     }
-
-
-
-
-
-
-
 
     private class ButtonListener implements ActionListener
     {
@@ -57,9 +76,11 @@ public class ViewData extends JFrame {
 
                  */
             }
-
-
-
+            if (source ==  back){
+                HomePanel panel = new HomePanel();
+                panel.setVisible(true);
+                dispose();
+            }
         }
     }
 

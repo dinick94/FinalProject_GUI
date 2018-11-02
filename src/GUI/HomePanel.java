@@ -12,12 +12,6 @@ public class HomePanel extends JFrame {
 
     public static void main(String args[]){
 
-
-
-        HomePanel panel = new HomePanel();
-
-
-
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -27,9 +21,6 @@ public class HomePanel extends JFrame {
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-
-
-
             }
         });
 
@@ -40,7 +31,7 @@ public class HomePanel extends JFrame {
     {
         setTitle("Home Page");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(50,50, 260, 280);
+        setBounds(50,50, 320, 320);
 
         ButtonListener listener = new ButtonListener();
 
@@ -64,13 +55,11 @@ public class HomePanel extends JFrame {
         configuration.addActionListener(listener);
         readme.addActionListener(listener);
 
+        upperPanel.setPreferredSize(new Dimension(320,150));
+        lowerPanel.setPreferredSize(new Dimension(320, 100));
 
-        upperPanel.setPreferredSize(new Dimension(220,150));
-        lowerPanel.setPreferredSize(new Dimension(220, 100));
+        finishPanel.setPreferredSize(new Dimension(320, 250));
 
-        finishPanel.setPreferredSize(new Dimension(220, 250));
-
-        label.setPreferredSize(new Dimension(100, 50));
         label.setFont(new Font("Arial", Font.PLAIN, 18));
 
         finishPanel.setLayout(new BoxLayout(finishPanel, BoxLayout.PAGE_AXIS));
@@ -85,6 +74,7 @@ public class HomePanel extends JFrame {
         readme.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        label.setBorder(BorderFactory.createEmptyBorder(5,20,20,20));
 
         upperPanel.add(viewData);
         upperPanel.add(importData);
@@ -93,6 +83,7 @@ public class HomePanel extends JFrame {
 
         lowerPanel.add(configuration);
         lowerPanel.add(readme);
+        lowerPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         finishPanel.add(label);
         finishPanel.add(upperPanel);
@@ -111,12 +102,12 @@ public class HomePanel extends JFrame {
             if (source == viewData){
                 ViewData viewData = new ViewData();
                 viewData.setVisible(true);
-
-                setVisible(false);
+                dispose();
             }
-            if (source == readme){
-
-
+            if (source == importData){
+                ImportData importData = new ImportData();
+                importData.setVisible(true);
+                dispose();
             }
 
         }
