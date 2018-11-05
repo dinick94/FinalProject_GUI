@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 
 public class ImportData extends JFrame {
 
-    JLabel importDataLabel, sourceLabel, dataBaseLocationLabel, tableNameLabel, responseLabel;
-    JButton sourceDefaultButton, dbLocationDefaultButton, tableNameDefaultButton, backButton, importButton;
-    JTextField sourceTextField, dbLocationTextField, tableNameTextField, responseTextField;
-    JPanel rows[], finishPanel;
-    final int MAX_ROWS = 10;
+    private JLabel importDataLabel, sourceLabel, dataBaseLocationLabel, tableNameLabel, responseLabel;
+    private JButton sourceDefaultButton, dbLocationDefaultButton, tableNameDefaultButton, backButton, importButton;
+    private JTextField sourceTextField, dbLocationTextField, tableNameTextField, responseTextField;
+    private JPanel rows[], finishPanel;
+    private final int MAX_ROWS = 10;
 
     public static void main(String args[]){
         SwingUtilities.invokeLater(new Runnable() {
@@ -34,7 +34,7 @@ public class ImportData extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(50,50, 600,400);
 
-
+        ButtonListener listener = new ButtonListener();
 
         importDataLabel = new JLabel("Import data");
         sourceLabel = new JLabel("Source");
@@ -52,6 +52,8 @@ public class ImportData extends JFrame {
         dbLocationTextField = new JTextField(30);
         tableNameTextField = new JTextField(30);
         responseTextField = new JTextField(25);
+
+        backButton.addActionListener(listener);
 
         JPanel rows[] = new JPanel[MAX_ROWS];
         for (int i = 0; i < MAX_ROWS; i++){
