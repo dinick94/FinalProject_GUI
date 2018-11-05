@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class ViewData extends JFrame {
@@ -10,6 +11,11 @@ public class ViewData extends JFrame {
     JTable table;
     JButton back, load;
     JPanel buttonPanel, finishPanel;
+
+    final int TABLE_MAX_ROWS = 6;
+    final int TABLE_MAX_COLUMNS = 6;
+
+    ArrayList<String> testArray = new ArrayList<>();
 
     public static void main(String args[]){
         SwingUtilities.invokeLater(new Runnable() {
@@ -27,6 +33,11 @@ public class ViewData extends JFrame {
 
     public ViewData(){
 
+
+        for (Integer i = 0; i < 36; i++){
+            testArray.add("TEST" + i.toString());
+        }
+
         setTitle("View Data");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(50,50,500,200);
@@ -37,7 +48,7 @@ public class ViewData extends JFrame {
         buttonPanel = new JPanel();
         finishPanel = new JPanel();
         label = new JLabel("View Data");
-        table = new JTable(6,6);
+        table = new JTable(TABLE_MAX_ROWS,TABLE_MAX_COLUMNS);
         back = new JButton("Back");
         load = new JButton("Load");
 
@@ -47,11 +58,6 @@ public class ViewData extends JFrame {
         load.addActionListener(listener);
 
         finishPanel.setLayout(new BoxLayout(finishPanel, BoxLayout.PAGE_AXIS));
-
-        label.setAlignmentX(LEFT_ALIGNMENT);
-        back.setAlignmentX(RIGHT_ALIGNMENT);
-        load.setAlignmentX(LEFT_ALIGNMENT);
-
 
 
         buttonPanel.add(back);
@@ -75,11 +81,20 @@ public class ViewData extends JFrame {
                        Action when "LOAD" button pushed
 
                  */
+                loadData(testArray);
             }
             if (source ==  back){
                 HomePanel panel = new HomePanel();
                 panel.setVisible(true);
                 dispose();
+            }
+        }
+    }
+
+    public void loadData(ArrayList<String> dataToLoad){
+        for(int i = 0; i < TABLE_MAX_ROWS; i++){
+            for(int j = 0; j < TABLE_MAX_COLUMNS; j++){
+                table.setValueAt(dataToLoad.get(i * TABLE_MAX_ROWS + j),i,j);
             }
         }
     }
