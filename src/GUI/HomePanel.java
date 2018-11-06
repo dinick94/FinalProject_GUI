@@ -30,7 +30,7 @@ public class HomePanel extends JFrame {
     public HomePanel ()
     {
         setTitle("Home Page");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(50,50, 320, 320);
 
         ButtonListener listener = new ButtonListener();
@@ -107,6 +107,11 @@ public class HomePanel extends JFrame {
             if (source == importData){
                 ImportData importData = new ImportData();
                 importData.setVisible(true);
+                dispose();
+            }
+            if (source == editData){
+                EditData editData = new EditData();
+                editData.setVisible(true);
                 dispose();
             }
 

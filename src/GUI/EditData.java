@@ -30,14 +30,14 @@ public class EditData extends JFrame {
 
 
         setTitle("Import Data");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(50,50, 600,400);
 
         ButtonListener listener = new ButtonListener();
 
-        editDataLabel = new JLabel("Import data");
-        removeCharactersLabel = new JLabel("Source");
-        removeWordsLabel = new JLabel("Database location");
+        editDataLabel = new JLabel("Edit data");
+        removeCharactersLabel = new JLabel("Remove characters");
+        removeWordsLabel = new JLabel("Remove words");
         tableNameLabel = new JLabel("Table name");
         responseLabel = new JLabel("Response");
 

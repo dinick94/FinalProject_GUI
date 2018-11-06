@@ -7,15 +7,15 @@ import javax.swing.*;
 
 public class ViewData extends JFrame {
 
-    JLabel label;
-    JTable table;
-    JButton back, load;
-    JPanel buttonPanel, finishPanel;
+    private JLabel label;
+    private JTable table;
+    private JButton back, load;
+    private JPanel buttonPanel, finishPanel;
 
-    final int TABLE_MAX_ROWS = 6;
-    final int TABLE_MAX_COLUMNS = 6;
+    private final int TABLE_MAX_ROWS = 6;
+    private final int TABLE_MAX_COLUMNS = 6;
 
-    ArrayList<String> testArray = new ArrayList<>();
+    private ArrayList<String> testArray = new ArrayList<>();
 
     public static void main(String args[]){
         SwingUtilities.invokeLater(new Runnable() {
@@ -39,7 +39,7 @@ public class ViewData extends JFrame {
         }
 
         setTitle("View Data");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(50,50,500,200);
 
 
