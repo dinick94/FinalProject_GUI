@@ -114,6 +114,11 @@ public class HomePanel extends JFrame {
                 editData.setVisible(true);
                 dispose();
             }
+            if (source == exportData){
+                ExportData exportData = new ExportData();
+                exportData.setVisible(true);
+                dispose();
+            }
 
         }
     }

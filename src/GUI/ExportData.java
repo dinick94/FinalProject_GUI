@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 
 public class ExportData extends JFrame {
 
-    private JLabel targetDataLabel, databaseLocationLabel, dataBaseLocationLabel, tableNameLabel, responseLabel;
-    private JButton sourceDefaultButton, dbLocationDefaultButton, tableNameDefaultButton, backButton, importButton;
-    private JTextField sourceTextField, dbLocationTextField, tableNameTextField, responseTextField;
+    private JLabel targetDataLabel, targetFileLocationLabel, dataBaseLocationLabel, tableNameLabel, responseLabel;
+    private JButton targetFileDefaultButton, dbLocationDefaultButton, tableNameDefaultButton, backButton, exportButton;
+    private JTextField targetTextField, dbLocationTextField, tableNameTextField, responseTextField;
     private JPanel rows[], finishPanel;
     private final int MAX_ROWS = 10;
 
@@ -27,7 +27,7 @@ public class ExportData extends JFrame {
         });
     }
 
-    public ImportData(){
+    public ExportData(){
 
 
         setTitle("Import Data");
@@ -36,19 +36,19 @@ public class ExportData extends JFrame {
 
         ButtonListener listener = new ButtonListener();
 
-        targetDataLabel = new JLabel("Import data");
-        databaseLocationLabel = new JLabel("Source");
+        targetDataLabel = new JLabel("Export data");
+        targetFileLocationLabel = new JLabel("Target");
         dataBaseLocationLabel = new JLabel("Database location");
         tableNameLabel = new JLabel("Table name");
         responseLabel = new JLabel("Response");
 
-        sourceDefaultButton = new JButton("Default");
+        targetFileDefaultButton = new JButton("Default");
         dbLocationDefaultButton = new JButton("Default");
         tableNameDefaultButton = new JButton("Default");
         backButton = new JButton("Back");
-        importButton = new JButton("Import");
+        exportButton = new JButton("Export");
 
-        sourceTextField = new JTextField(30);
+        targetTextField = new JTextField(30);
         dbLocationTextField = new JTextField(30);
         tableNameTextField = new JTextField(30);
         responseTextField = new JTextField(25);
@@ -72,9 +72,9 @@ public class ExportData extends JFrame {
 
 
         rows[0].add(targetDataLabel);
-        rows[1].add(databaseLocationLabel);
-        rows[2].add(sourceTextField);
-        rows[2].add(sourceDefaultButton);
+        rows[1].add(targetFileLocationLabel);
+        rows[2].add(targetTextField);
+        rows[2].add(targetFileDefaultButton);
         rows[3].add(dataBaseLocationLabel);
         rows[4].add(dbLocationTextField);
         rows[4].add(dbLocationDefaultButton);
@@ -84,7 +84,7 @@ public class ExportData extends JFrame {
         rows[7].add(responseLabel);
         rows[8].add(responseTextField);
         rows[9].add(backButton);
-        rows[9].add(importButton);
+        rows[9].add(exportButton);
 
         for (int i = 0; i < MAX_ROWS; i++){
             finishPanel.add(rows[i]);
@@ -98,7 +98,7 @@ public class ExportData extends JFrame {
         public void actionPerformed (ActionEvent event)
         {
             Object source = event.getSource();
-            if (source == sourceDefaultButton){
+            if (source == targetFileDefaultButton){
 
             }
             if (source ==  backButton){
