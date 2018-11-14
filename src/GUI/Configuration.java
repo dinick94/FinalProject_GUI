@@ -1,11 +1,14 @@
 package GUI;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Configuration extends JFrame {
+
     private JLabel configurationLabel, sourceFIleLocationLabel, targetFileLocationLabel, databaseFileLabel, tableNameLabel, removeCharactersLabel, removeWordsLabel;
     private JButton backButton, saveButton;
     private JTextField sourceFileTextField, targetFileTextField, tableNameTextField, databaseFIleLocationTextField, removeCharactersTextField, removeWordsTextField;
@@ -31,17 +34,24 @@ public class Configuration extends JFrame {
 
         setTitle("Import Data");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(50,50, 600,400);
+        setBounds(50,50, 400,470);
 
         ButtonListener listener = new ButtonListener();
 
         configurationLabel = new JLabel("Default Configurations");
+        configurationLabel.setFont(new Font("Arial", Font.BOLD, 22));
         removeCharactersLabel = new JLabel("Remove characters");
+        removeCharactersLabel.setFont(new Font("Arial", Font.BOLD, 12));
         removeWordsLabel = new JLabel("Remove words");
+        removeWordsLabel.setFont(new Font("Arial", Font.BOLD, 12));
         tableNameLabel = new JLabel("Table name");
+        tableNameLabel.setFont(new Font("Arial", Font.BOLD, 12));
         sourceFIleLocationLabel = new JLabel("Source file location");
+        sourceFIleLocationLabel.setFont(new Font("Arial", Font.BOLD, 12));
         targetFileLocationLabel = new JLabel("Target file location");
+        targetFileLocationLabel.setFont(new Font("Arial", Font.BOLD, 12));
         databaseFileLabel = new JLabel("Database file location");
+        databaseFileLabel.setFont(new Font("Arial", Font.BOLD, 12));
 
 
 
@@ -71,24 +81,21 @@ public class Configuration extends JFrame {
 
         finishPanel.setLayout(new BoxLayout(finishPanel, BoxLayout.PAGE_AXIS));
 
-        editDataLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-        editDataLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-
-        rows[0].add(editDataLabel);
-        rows[1].add(removeCharactersLabel);
-        rows[2].add(removeCharactersTextField);
-        rows[2].add(removeCharactersDefaultButton);
-        rows[3].add(removeWordsLabel);
-        rows[4].add(removeWordsTextField);
-        rows[4].add(removeWordsDefaultButton);
-        rows[5].add(tableNameLabel);
-        rows[6].add(tableNameTextField);
-        rows[6].add(tableNameDefaultButton);
-        rows[7].add(responseLabel);
-        rows[8].add(responseTextField);
-        rows[9].add(backButton);
-        rows[9].add(processButton);
+        rows[0].add(configurationLabel);
+        rows[1].add(sourceFIleLocationLabel);
+        rows[2].add(sourceFileTextField);
+        rows[3].add(targetFileLocationLabel);
+        rows[4].add(targetFileTextField);
+        rows[5].add(databaseFileLabel);
+        rows[6].add(databaseFIleLocationTextField);
+        rows[7].add(tableNameLabel);
+        rows[8].add(tableNameTextField);
+        rows[9].add(removeCharactersLabel);
+        rows[10].add(removeCharactersTextField);
+        rows[11].add(removeWordsLabel);
+        rows[12].add(removeWordsTextField);
+        rows[13].add(backButton);
+        rows[13].add(saveButton);
 
         for (int i = 0; i < MAX_ROWS; i++){
             finishPanel.add(rows[i]);
@@ -102,7 +109,7 @@ public class Configuration extends JFrame {
         public void actionPerformed (ActionEvent event)
         {
             Object source = event.getSource();
-            if (source == removeCharactersDefaultButton){
+            if (true){
 
             }
             if (source ==  backButton){

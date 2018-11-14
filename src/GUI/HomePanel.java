@@ -119,6 +119,11 @@ public class HomePanel extends JFrame {
                 exportData.setVisible(true);
                 dispose();
             }
+            if (source == configuration){
+                Configuration configuration = new Configuration();
+                configuration.setVisible(true);
+                dispose();
+            }
 
         }
     }

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Configuration extends JFrame {
+public class EditData extends JFrame {
     private JLabel editDataLabel, removeCharactersLabel, removeWordsLabel, tableNameLabel, responseLabel;
     private JButton removeCharactersDefaultButton, removeWordsDefaultButton, tableNameDefaultButton, backButton, processButton;
     private JTextField removeCharactersTextField, removeWordsTextField, tableNameTextField, responseTextField;
