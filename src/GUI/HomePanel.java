@@ -91,6 +91,7 @@ public class HomePanel extends JFrame {
 
         add(finishPanel);
 
+
     }
 
 
@@ -99,32 +100,27 @@ public class HomePanel extends JFrame {
         public void actionPerformed (ActionEvent event)
         {
             Object source = event.getSource();
+            JFrame newWIndow;
             if (source == viewData){
-                ViewData viewData = new ViewData();
-                viewData.setVisible(true);
-                dispose();
-            }
+            newWIndow = new ViewData();
+            } else
             if (source == importData){
-                ImportData importData = new ImportData();
-                importData.setVisible(true);
-                dispose();
-            }
+                newWIndow = new ImportData();
+            } else
             if (source == editData){
-                EditData editData = new EditData();
-                editData.setVisible(true);
-                dispose();
-            }
+                newWIndow = new EditData();
+            } else
             if (source == exportData){
-                ExportData exportData = new ExportData();
-                exportData.setVisible(true);
-                dispose();
-            }
+                newWIndow = new ExportData();
+            } else
             if (source == configuration){
-                Configuration configuration = new Configuration();
-                configuration.setVisible(true);
-                dispose();
-            }
+                newWIndow = new Configuration();
+            } else return;
+            newWIndow.setVisible(true);
+            dispose();
 
         }
+
     }
 }
+
