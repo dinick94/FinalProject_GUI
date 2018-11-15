@@ -84,7 +84,7 @@ public class ViewData extends JFrame {
                 loadData(testArray);
             }
             if (source ==  back){
-                HomePanel panel = new HomePanel();
+                Readme panel = new Readme();
                 panel.setVisible(true);
                 dispose();
             }

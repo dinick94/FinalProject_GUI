@@ -1,8 +1,6 @@
 package GUI;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -113,7 +111,7 @@ public class Configuration extends JFrame {
 
             }
             if (source ==  backButton){
-                HomePanel panel = new HomePanel();
+                Readme panel = new Readme();
                 panel.setVisible(true);
                 dispose();
             }

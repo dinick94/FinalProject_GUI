@@ -101,7 +101,7 @@ public class EditData extends JFrame {
 
             }
             if (source ==  backButton){
-                HomePanel panel = new HomePanel();
+                Readme panel = new Readme();
                 panel.setVisible(true);
                 dispose();
             }

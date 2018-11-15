@@ -16,7 +16,7 @@ public class HomePanel extends JFrame {
             @Override
             public void run() {
                 try {
-                    HomePanel frame = new HomePanel();
+                    Readme frame = new Readme();
                     frame.setVisible(true);
                 }catch(Exception e){
                     e.printStackTrace();
@@ -115,6 +115,9 @@ public class HomePanel extends JFrame {
             } else
             if (source == configuration){
                 newWIndow = new Configuration();
+            } else
+            if(source == readme){
+                newWIndow = new Readme();
             } else return;
             newWIndow.setVisible(true);
             dispose();
