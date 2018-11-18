@@ -15,7 +15,7 @@ public class ViewData extends JFrame {
     private final int TABLE_MAX_ROWS = 6;
     private final int TABLE_MAX_COLUMNS = 6;
 
-    private ArrayList<String> testArray = new ArrayList<>();
+    private ArrayList<String> testArray = new ArrayList<>(); // that ArrayList
 
     public static void main(String args[]){
         SwingUtilities.invokeLater(new Runnable() {
@@ -84,8 +84,8 @@ public class ViewData extends JFrame {
                 loadData(testArray);
             }
             if (source ==  back){
-                Readme panel = new Readme();
-                panel.setVisible(true);
+                HomePanel frame = new HomePanel();
+                frame.setVisible(true);
                 dispose();
             }
         }

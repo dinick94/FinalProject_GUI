@@ -101,8 +101,8 @@ public class EditData extends JFrame {
 
             }
             if (source ==  backButton){
-                Readme panel = new Readme();
-                panel.setVisible(true);
+                HomePanel frame = new HomePanel();
+                frame.setVisible(true);
                 dispose();
             }
         }

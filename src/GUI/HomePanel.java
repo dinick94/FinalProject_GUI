@@ -16,7 +16,7 @@ public class HomePanel extends JFrame {
             @Override
             public void run() {
                 try {
-                    Readme frame = new Readme();
+                    HomePanel frame = new HomePanel();
                     frame.setVisible(true);
                 }catch(Exception e){
                     e.printStackTrace();
