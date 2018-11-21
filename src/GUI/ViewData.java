@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class ViewData extends JFrame {
 
@@ -58,6 +59,7 @@ public class ViewData extends JFrame {
         load.addActionListener(listener);
 
         finishPanel.setLayout(new BoxLayout(finishPanel, BoxLayout.PAGE_AXIS));
+        
 
 
         buttonPanel.add(back);

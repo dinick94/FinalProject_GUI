@@ -37,9 +37,9 @@ public class ExportData extends JFrame {
         ButtonListener listener = new ButtonListener();
 
         targetDataLabel = new JLabel("Export data");
-        targetFileLocationLabel = new JLabel("Target");
-        dataBaseLocationLabel = new JLabel("Database location");
-        tableNameLabel = new JLabel("Table name");
+        targetFileLocationLabel = new JLabel("Target File Name");
+        dataBaseLocationLabel = new JLabel("Database File Name");
+        tableNameLabel = new JLabel("Table Name");
         responseLabel = new JLabel("Response");
 
         targetFileDefaultButton = new JButton("Default");

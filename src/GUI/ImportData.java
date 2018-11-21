@@ -38,7 +38,7 @@ public class ImportData extends JFrame {
 
         importDataLabel = new JLabel("Import data");
         sourceLabel = new JLabel("Source");
-        dataBaseLocationLabel = new JLabel("Database location");
+        dataBaseLocationLabel = new JLabel("Database File Name");
         tableNameLabel = new JLabel("Table name");
         responseLabel = new JLabel("Response");
 

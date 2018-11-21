@@ -7,11 +7,11 @@ import java.awt.event.ActionListener;
 
 public class Configuration extends JFrame {
 
-    private JLabel configurationLabel, sourceFIleLocationLabel, targetFileLocationLabel, databaseFileLabel, tableNameLabel, removeCharactersLabel, removeWordsLabel;
+    private JLabel configurationLabel, sourceFIleLocationLabel, targetFileLocationLabel, databaseFileLabel, tableNameLabel, removeCharactersLabel;
     private JButton backButton, saveButton;
-    private JTextField sourceFileTextField, targetFileTextField, tableNameTextField, databaseFIleLocationTextField, removeCharactersTextField, removeWordsTextField;
+    private JTextField sourceFileTextField, targetFileTextField, tableNameTextField, databaseFIleLocationTextField, removeCharactersTextField;
     private JPanel rows[], finishPanel;
-    private final int MAX_ROWS = 14;
+    private final int MAX_ROWS = 12;
 
     public static void main(String args[]){
         SwingUtilities.invokeLater(new Runnable() {
@@ -40,8 +40,6 @@ public class Configuration extends JFrame {
         configurationLabel.setFont(new Font("Arial", Font.BOLD, 22));
         removeCharactersLabel = new JLabel("Remove characters");
         removeCharactersLabel.setFont(new Font("Arial", Font.BOLD, 12));
-        removeWordsLabel = new JLabel("Remove words");
-        removeWordsLabel.setFont(new Font("Arial", Font.BOLD, 12));
         tableNameLabel = new JLabel("Table name");
         tableNameLabel.setFont(new Font("Arial", Font.BOLD, 12));
         sourceFIleLocationLabel = new JLabel("Source file location");
@@ -58,7 +56,6 @@ public class Configuration extends JFrame {
 
 
         removeCharactersTextField = new JTextField(30);
-        removeWordsTextField = new JTextField(30);
         tableNameTextField = new JTextField(30);
         sourceFileTextField = new JTextField(30);
         targetFileTextField = new JTextField(30);
@@ -90,10 +87,8 @@ public class Configuration extends JFrame {
         rows[8].add(tableNameTextField);
         rows[9].add(removeCharactersLabel);
         rows[10].add(removeCharactersTextField);
-        rows[11].add(removeWordsLabel);
-        rows[12].add(removeWordsTextField);
-        rows[13].add(backButton);
-        rows[13].add(saveButton);
+        rows[11].add(backButton);
+        rows[11].add(saveButton);
 
         for (int i = 0; i < MAX_ROWS; i++){
             finishPanel.add(rows[i]);

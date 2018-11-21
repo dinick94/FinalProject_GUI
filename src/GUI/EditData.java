@@ -6,11 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class EditData extends JFrame {
-    private JLabel editDataLabel, removeCharactersLabel, removeWordsLabel, tableNameLabel, responseLabel;
-    private JButton removeCharactersDefaultButton, removeWordsDefaultButton, tableNameDefaultButton, backButton, processButton;
-    private JTextField removeCharactersTextField, removeWordsTextField, tableNameTextField, responseTextField;
+    private JLabel editDataLabel, removeCharactersLabel, tableNameLabel, responseLabel;
+    private JButton removeCharactersDefaultButton, tableNameDefaultButton, backButton, processButton;
+    private JTextField removeCharactersTextField, tableNameTextField, responseTextField;
     private JPanel rows[], finishPanel;
-    private final int MAX_ROWS = 10;
+    private final int MAX_ROWS = 8;
 
     public static void main(String args[]){
         SwingUtilities.invokeLater(new Runnable() {
@@ -37,18 +37,15 @@ public class EditData extends JFrame {
 
         editDataLabel = new JLabel("Edit data");
         removeCharactersLabel = new JLabel("Remove characters");
-        removeWordsLabel = new JLabel("Remove words");
         tableNameLabel = new JLabel("Table name");
         responseLabel = new JLabel("Response");
 
         removeCharactersDefaultButton = new JButton("Default");
-        removeWordsDefaultButton = new JButton("Default");
         tableNameDefaultButton = new JButton("Default");
         backButton = new JButton("Back");
-        processButton = new JButton("Import");
+        processButton = new JButton("Process");
 
         removeCharactersTextField = new JTextField(30);
-        removeWordsTextField = new JTextField(30);
         tableNameTextField = new JTextField(30);
         responseTextField = new JTextField(25);
 
@@ -74,16 +71,13 @@ public class EditData extends JFrame {
         rows[1].add(removeCharactersLabel);
         rows[2].add(removeCharactersTextField);
         rows[2].add(removeCharactersDefaultButton);
-        rows[3].add(removeWordsLabel);
-        rows[4].add(removeWordsTextField);
-        rows[4].add(removeWordsDefaultButton);
-        rows[5].add(tableNameLabel);
-        rows[6].add(tableNameTextField);
-        rows[6].add(tableNameDefaultButton);
-        rows[7].add(responseLabel);
-        rows[8].add(responseTextField);
-        rows[9].add(backButton);
-        rows[9].add(processButton);
+        rows[3].add(tableNameLabel);
+        rows[4].add(tableNameTextField);
+        rows[4].add(tableNameDefaultButton);
+        rows[5].add(responseLabel);
+        rows[6].add(responseTextField);
+        rows[7].add(backButton);
+        rows[7].add(processButton);
 
         for (int i = 0; i < MAX_ROWS; i++){
             finishPanel.add(rows[i]);
