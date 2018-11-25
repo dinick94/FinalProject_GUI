@@ -1,116 +1,103 @@
 package GUI;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.Serializable;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
-public class Configuration extends JFrame {
+/*
+    Configuration is saved in file as a number of Strings:
+ */
 
-    private JLabel configurationLabel, sourceFIleLocationLabel, targetFileLocationLabel, databaseFileLabel, tableNameLabel, removeCharactersLabel;
-    private JButton backButton, saveButton;
-    private JTextField sourceFileTextField, targetFileTextField, tableNameTextField, databaseFIleLocationTextField, removeCharactersTextField;
-    private JPanel rows[], finishPanel;
-    private final int MAX_ROWS = 12;
+public class Configuration implements Serializable {
+    private static final long serialVersionUID = 42L;
+    private String sourceFileLocation;
+    private String targetFileLocation;
+    private String databaseFileLocation;
+    private String tableName;
+    private String removeCharacters;
 
-    public static void main(String args[]){
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Configuration frame = new Configuration();
-                    frame.setVisible(true);
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
+    public String getSourceFileLocation() {
+        return sourceFileLocation;
     }
 
-    public Configuration(){
-
-
-        setTitle("Import Data");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(50,50, 400,470);
-
-        ButtonListener listener = new ButtonListener();
-
-        configurationLabel = new JLabel("Default Configurations");
-        configurationLabel.setFont(new Font("Arial", Font.BOLD, 22));
-        removeCharactersLabel = new JLabel("Remove characters");
-        removeCharactersLabel.setFont(new Font("Arial", Font.BOLD, 12));
-        tableNameLabel = new JLabel("Table name");
-        tableNameLabel.setFont(new Font("Arial", Font.BOLD, 12));
-        sourceFIleLocationLabel = new JLabel("Source file location");
-        sourceFIleLocationLabel.setFont(new Font("Arial", Font.BOLD, 12));
-        targetFileLocationLabel = new JLabel("Target file location");
-        targetFileLocationLabel.setFont(new Font("Arial", Font.BOLD, 12));
-        databaseFileLabel = new JLabel("Database file location");
-        databaseFileLabel.setFont(new Font("Arial", Font.BOLD, 12));
-
-
-
-        backButton = new JButton("Back");
-        saveButton = new JButton("Save");
-
-
-        removeCharactersTextField = new JTextField(30);
-        tableNameTextField = new JTextField(30);
-        sourceFileTextField = new JTextField(30);
-        targetFileTextField = new JTextField(30);
-        databaseFIleLocationTextField = new JTextField(30);
-
-        backButton.addActionListener(listener);
-        saveButton.addActionListener(listener);
-
-        JPanel rows[] = new JPanel[MAX_ROWS];
-        for (int i = 0; i < MAX_ROWS; i++){
-            rows[i] = new JPanel();
-            rows[i].setLayout(new FlowLayout());
-            rows[i].setPreferredSize(new Dimension(150, 10));
-            rows[i].setAlignmentX(Component.LEFT_ALIGNMENT);
-        }
-
-        finishPanel = new JPanel();
-
-        finishPanel.setLayout(new BoxLayout(finishPanel, BoxLayout.PAGE_AXIS));
-
-        rows[0].add(configurationLabel);
-        rows[1].add(sourceFIleLocationLabel);
-        rows[2].add(sourceFileTextField);
-        rows[3].add(targetFileLocationLabel);
-        rows[4].add(targetFileTextField);
-        rows[5].add(databaseFileLabel);
-        rows[6].add(databaseFIleLocationTextField);
-        rows[7].add(tableNameLabel);
-        rows[8].add(tableNameTextField);
-        rows[9].add(removeCharactersLabel);
-        rows[10].add(removeCharactersTextField);
-        rows[11].add(backButton);
-        rows[11].add(saveButton);
-
-        for (int i = 0; i < MAX_ROWS; i++){
-            finishPanel.add(rows[i]);
-        }
-
-        add(finishPanel);
+    public void setSourceFileLocation(String sourceFileLocation) {
+        this.sourceFileLocation = sourceFileLocation;
     }
 
-    private class ButtonListener implements ActionListener
-    {
-        public void actionPerformed (ActionEvent event)
-        {
-            Object source = event.getSource();
-            if (true){
+    public String getTargetFileLocation() {
+        return targetFileLocation;
+    }
 
-            }
-            if (source ==  backButton){
-                HomePanel frame = new HomePanel();
-                frame.setVisible(true);
-                dispose();
-            }
+    public void setTargetFileLocation(String targetFileLocation) {
+        this.targetFileLocation = targetFileLocation;
+    }
+
+    public String getDatabaseFileLocation() {
+        return databaseFileLocation;
+    }
+
+    public void setDatabaseFileLocation(String databaseFileLocation) {
+        this.databaseFileLocation = databaseFileLocation;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public String getRemoveCharacters() {
+        return removeCharacters;
+    }
+
+    public void setRemoveCharacters(String removeCharacters) {
+        this.removeCharacters = removeCharacters;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuffer().append(this.sourceFileLocation).append('\n').
+                append(this.targetFileLocation).append('\n').append(this.databaseFileLocation).
+                append('\n').append(this.tableName).append('\n').append(this.removeCharacters).toString();
+    }
+
+    public void writeToFile(){
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("Config.txt");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+            objectOutputStream.writeObject(this);
+
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
+
+    public void readFromFile(){
+        try{
+            FileInputStream fileInputStream = new FileInputStream("Config.txt");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            Configuration newConfiguration = (Configuration)objectInputStream.readObject();
+
+            this.databaseFileLocation = newConfiguration.getDatabaseFileLocation();
+            this.removeCharacters = newConfiguration.getRemoveCharacters();
+            this.sourceFileLocation = newConfiguration.getSourceFileLocation();
+            this.targetFileLocation = newConfiguration.getTargetFileLocation();
+            this.tableName = newConfiguration.getTableName();
+
+            objectInputStream.close();
+            fileInputStream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

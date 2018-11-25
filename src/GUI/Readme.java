@@ -32,7 +32,7 @@ public class Readme extends JFrame {
     {
         setTitle("Readme");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(50,50, 500, 320);
+        setBounds(50,50, 500, 330);
 
         ButtonListener listener = new ButtonListener();
 

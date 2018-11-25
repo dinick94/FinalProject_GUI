@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class EditData extends JFrame {
+    private Configuration configuration;
+
     private JLabel editDataLabel, removeCharactersLabel, tableNameLabel, responseLabel;
     private JButton removeCharactersDefaultButton, tableNameDefaultButton, backButton, processButton;
     private JTextField removeCharactersTextField, tableNameTextField, responseTextField;
@@ -28,6 +30,8 @@ public class EditData extends JFrame {
 
     public EditData(){
 
+        configuration = new Configuration();
+        configuration.readFromFile();
 
         setTitle("Import Data");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,7 +53,10 @@ public class EditData extends JFrame {
         tableNameTextField = new JTextField(30);
         responseTextField = new JTextField(25);
 
+        removeCharactersDefaultButton.addActionListener(listener);
+        tableNameDefaultButton.addActionListener(listener);
         backButton.addActionListener(listener);
+        processButton.addActionListener(listener);
 
         JPanel rows[] = new JPanel[MAX_ROWS];
         for (int i = 0; i < MAX_ROWS; i++){
@@ -91,8 +98,16 @@ public class EditData extends JFrame {
         public void actionPerformed (ActionEvent event)
         {
             Object source = event.getSource();
+            if (source == processButton){
+                /*
+                    PROCESS
+                 */
+            }
             if (source == removeCharactersDefaultButton){
-
+                removeCharactersTextField.setText(configuration.getRemoveCharacters());
+            }
+            if (source == tableNameDefaultButton){
+                tableNameTextField.setText(configuration.getTableName());
             }
             if (source ==  backButton){
                 HomePanel frame = new HomePanel();

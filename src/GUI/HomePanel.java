@@ -8,7 +8,7 @@ public class HomePanel extends JFrame {
 
     private JLabel label;
     private JPanel upperPanel, lowerPanel, finishPanel;
-    private JButton viewData, importData, editData, exportData, configuration, readme;
+    private JButton viewData, importData, editData, exportData, configurationPage, readme;
 
     public static void main(String args[]){
 
@@ -29,6 +29,7 @@ public class HomePanel extends JFrame {
 
     public HomePanel ()
     {
+
         setTitle("Home Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(50,50, 320, 320);
@@ -45,14 +46,14 @@ public class HomePanel extends JFrame {
         importData = new JButton("Import Data");
         editData = new JButton("Edit Data");
         exportData = new JButton("Export Data");
-        configuration = new JButton("Configuration");
+        configurationPage = new JButton("Configuration");
         readme = new JButton("Readme");
 
         viewData.addActionListener(listener);
         importData.addActionListener(listener);
         editData.addActionListener(listener);
         exportData.addActionListener(listener);
-        configuration.addActionListener(listener);
+        configurationPage.addActionListener(listener);
         readme.addActionListener(listener);
 
         upperPanel.setPreferredSize(new Dimension(320,150));
@@ -70,7 +71,7 @@ public class HomePanel extends JFrame {
         importData.setAlignmentX(Component.CENTER_ALIGNMENT);
         editData.setAlignmentX(Component.CENTER_ALIGNMENT);
         exportData.setAlignmentX(Component.CENTER_ALIGNMENT);
-        configuration.setAlignmentX(Component.CENTER_ALIGNMENT);
+        configurationPage.setAlignmentX(Component.CENTER_ALIGNMENT);
         readme.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -81,7 +82,7 @@ public class HomePanel extends JFrame {
         upperPanel.add(editData);
         upperPanel.add(exportData);
 
-        lowerPanel.add(configuration);
+        lowerPanel.add(configurationPage);
         lowerPanel.add(readme);
         lowerPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -113,8 +114,8 @@ public class HomePanel extends JFrame {
             if (source == exportData){
                 newWIndow = new ExportData();
             } else
-            if (source == configuration){
-                newWIndow = new Configuration();
+            if (source == configurationPage){
+                newWIndow = new ConfigurationPage();
             } else
             if(source == readme){
                 newWIndow = new Readme();
