@@ -1,18 +1,25 @@
 
-// Java Program to illustrate reading from text file 
-// as string in Java 
-
-import java.nio.file.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class ReadTextAsString {
-    public static String readFileAsString(String fileName) throws Exception {
-        String data = "";
-        data = new String(Files.readAllBytes(Paths.get(fileName)));
-        return data;
-    }
-
-    public static void main(String[] args) throws Exception {
-        String data = readFileAsString("program.txt");
-        System.out.println(data);
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+        InputStream inStream = new FileInputStream("../STATIC/ProgramFile.txt");
+        BufferedReader inBuffer = new BufferedReader(new InputStreamReader(inStream));
+        String line = inBuffer.readLine();
+        while (line != null) {
+            String tmp[] = line.split(",");
+            String name = tmp[0];
+            System.out.println(name);
+            line = inBuffer.readLine();
+        }
+        inBuffer.close();
     }
 }
