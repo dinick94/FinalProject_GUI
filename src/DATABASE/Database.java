@@ -1,3 +1,5 @@
+package DATABASE;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -6,10 +8,10 @@ import java.sql.Statement;
 
 public class Database {
 
-    String database_file_name = "";
-    Connection connection = null;
+    public String database_file_name = "";
+    public Connection connection = null;
 
-    Database(String db_file) {
+    public Database(String db_file) {
         this.database_file_name = db_file;
     }
 
